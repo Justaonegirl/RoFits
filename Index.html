@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoFits</title>
+    <style>
+        body {
+            font-family: cursive;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #1f1f1f;
+        }
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #1f1f1f;
+            padding: 20px;
+            position: fixed;
+            height: 100%;
+        }
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            margin: 10px 0;
+            font-family: cursive;
+            font-size: larger;
+        }
+        .main-content {
+            margin-left: 220px;
+            padding: 20px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .grid-item {
+            position: relative;
+            cursor: pointer;
+        }
+        .grid-item img {
+            width: 100%;
+            height: auto;
+            border: pink;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); 
+        }
+        .grid-item .view-more {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #121212;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .grid-item:hover .view-more {
+            opacity: 1;
+        }
+        .view-more:hover {
+            background-color: #028a5e;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        .modal-content {
+            margin: 15% auto;
+            display: block;
+            width: 60%;
+            max-width: 500px;
+            max-height: 80%;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            color: #ffffff;
+            font-size: 35px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: #999;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">RoFits</div>
+        <div class="menu">
+            <a href="Yas.html">Home</a>
+            <a href="Create.html">Create</a>
+            <a href="#">Explore</a>
+        </div>
+    </div>
+    <div class="sidebar">
+        <h2>More Aesthetics</h2>
+        <a href="Y2k.html">Y2K</a>
+        <a href="Pj.html">Pajamas</a>
+        <a href="Spidey.html">Spider man</a>
+        <a href="Bois.html">Bois 👌</a>
+        <a href="Cottage core.html">Cottage core</a>
+        <a href="Baddie.html">Baddie</a>
+        <a href="Preppy.html">Preppy & Clean</a>
+        <a href="Teddy bear.html">Teddy bear</a>
+        <a href="Slender.html">Slender</a>
+        <a href="Scene.html">Scene</a>
+        <a href="MM2.html">MM2</a>
+        <a href="Softie.html">Softie</a>
+        <a href="Hijabi.html">Hijabi</a>
+    </div>
+    <div class="main-content">
+        <div class="grid">
+            <div class="grid-item">
+                <img src="Image 1.jpeg" alt="Y2K Baddie">
+                <button class="view-more" onclick="openModal('Image 1.jpeg')">View More</button>
+            </div>
+            <div class="grid-item">
+                <img src="image 2.jpeg" alt="Y2K">
+                <button class="view-more" onclick="openModal('image 2.jpeg')">View More</button>
+            </div>
+            <div class="grid-item">
+                <img src="image 3.jpeg" alt="Must Have Y2K Fit">
+                <button class="view-more" onclick="openModal('image 3.jpeg')">View More</button>
+            </div>
+            <div class="grid-item">
+                <img src="image 4.jpeg" alt="Y2K Blue">
+                <button class="view-more" onclick="openModal('image 4.jpeg')">View More</button>
+                </div>
+                <div class="grid-item">
+                    <img src="Image 6.jpeg" alt="Must Have Emo Fit">
+                    <button class="view-more" onclick="openModal('Image 6.jpeg')">View More</button>
+                </div>
+                <div class="grid-item">
+                    <img src="image 7.jpeg" alt="Cute red Fit">
+                    <button class="view-more" onclick="openModal('image 7.jpeg')">View More</button>
+                </div>
+                <div class="grid-item">
+                    <img src="image 8.jpeg" alt="Must have Grunge">
+                    <button class="view-more" onclick="openModal('image 8.jpeg')">View More</button>
+                </div>
+                <div class="grid-item">
+                    <img src="image 9.jpeg" alt="Spicy spidey">
+                    <button class="view-more" onclick="openModal('image 9.jpeg')">View More</button>
+                </div>
+                <div class="grid-item">
+                    <img src="image 10.jpeg" alt="Cool casual">
+                    <button class="view-more" onclick="openModal('image 10.jpeg')">View More</button>
+                </div>
+                <div class="grid-item">
+                    <img src="image 11.jpeg" alt="RICH!!!">
+                    <button class="view-more" onclick="openModal('image 11.jpeg')">View More</button>
+                </div>
+                <div class="grid-item">
+                    <img src="image 12.jpeg" alt="Green girl kawaii">
+                    <button class="view-more" onclick="openModal('image 12.jpeg')">View More</button>
+                </div>
+                <div class="grid-item">
+                    <img src="image 13.jpeg" alt="Galaxy babi">
+                    <button class="view-more" onclick="openModal('image 13.jpeg')">View More</button>
+                </div>
+                <div class="grid-item">
+                    <img src="image 14.jpeg" alt="Baddest Baddie">
+                    <button class="view-more" onclick="openModal('image 14.jpeg')">View More</button>
+                </div>
+                <div class="grid-item">
+                    <img src="image 15.jpeg" alt="Cute">
+                    <button class="view-more" onclick="openModal('image 15.jpeg')">View More</button>
+                </div>
+                <div class="grid-item">
+                    <img src="image 16.jpeg" alt="red">
+                    <button class="view-more" onclick="openModal('image 16.jpeg')">View More</button>
+                </div>
+                <div class="grid-item">
+                    <img src="image 5.jpeg" alt="Blue">
+                    <button class="view-more" onclick="openModal('image 5.jpeg')">View More</button>
+                </div>
+                <div class="grid-item">
+                    <img src="image 17.jpeg" alt="office y2k">
+                    <button class="view-more" onclick="openModal('image 17.jpeg')">View More</button>
+                </div>
+                <div class="grid-item">
+                    <img src="image 18.jpeg" alt="Must">
+                    <button class="view-more" onclick="openModal('image 18.jpeg')">View More</button>
+                </div>
+                <div class="grid-item">
+                    <img src="image 19.jpeg" alt="Cozy">
+                    <button class="view-more" onclick="openModal('image 19.jpeg')">View More</button>
+                </div>
+                <div class="grid-item">
+                    <img src="image 20.jpeg" alt="y2k babi">
+                    <button class="view-more" onclick="openModal('image 20.jpeg')">View More</button>
+                </div>
+                <div class="grid-item">
+                    <img src="image 21.jpeg" alt="y2k hair code">
+                    <button class="view-more" onclick="openModal('image 21.jpeg')">View More</button>
+                </div>
+                <div class="grid-item">
+                    <img src="image 22.jpeg" alt="leg warmers">
+                    <button class="view-more" onclick="openModal('image 22.jpeg')">View More</button>
+                </div>
+            <div class="grid-item">
+                <img src="image 23.jpeg" alt="swim swim">
+                <button class="view-more" onclick="openModal('image 23.jpeg')">View More</button>
+            </div>
+            <div class="grid-item">
+                <img src="image 24.jpeg" alt="Ideal idol">
+                <button class="view-more" onclick="openModal('image 24.jpeg')">View More</button>
+            </div>
+            <div class="grid-item">
+                <img src="image 25.jpeg" alt="average mom">
+                <button class="view-more" onclick="openModel('image 25.jpeg')">View More</button>
+            </div>
+            <div class="grid-item">
+                <img src="image 26.jpeg" alt="Emooo">
+                <button class="view-more" onclick="openModal('image 26.jpeg')">View More</button>
+            </div>
+            <div class="grid-item">
+                <img src="image 27.jpeg" alt="Yes!!!!">
+                <button class="view-more" onclick="openModal('image 27.jpeg')">View More</button>
+            </div>
+            <div class="grid-item">
+                <img src="image 28.jpeg" alt="Blue!!!!">
+                <button class="view-more" onclick="openModal('image 28.jpeg')">View More</button>
+            </div>
+            <div class="grid-item">
+                <img src="image 29.jpeg" alt="Boonie!!!!">
+                <button class="view-more" onclick="openModal('image 29.jpeg')">View More</button>
+            </div>
+            <div class="grid-item">
+                <img src="image 30.jpeg" alt="Preppy!!!!">
+                <button class="view-more" onclick="openModal('image 30.jpeg')">View More</button>
+            </div>
+            <div class="grid-item">
+                <img src="image 31.jpeg" alt="Bonnets">
+                <button class="view-more" onclick="openModal('image 31.jpeg')">View More</button>
+            </div>
+            <div class="grid-item">
+                <img src="image 32.jpeg" alt="Cute">
+                <button class="view-more" onclick="openModal('image 32.jpeg')">View More</button>
+            </div>
+            <div class="grid-item">
+                <img src="image 33.jpeg" alt="Cute emo">
+                <button class="view-more" onclick="openModal('image 33.jpeg')">View More</button>
+            </div>
+            <div class="grid-item">
+                <img src="image 34.jpeg" alt="Teen Titans Go!">
+                <button class="view-more" onclick="openModal('image 34.jpeg')">View More</button>
+            </div>
+            <div class="grid-item">
+                <img src="image 35.jpeg" alt="Cute couple">
+                <button class="view-more" onclick="openModal('image 35.jpeg')">View More</button>
+            </div>
+            <div class="grid-item">
+                <img src="image 36.jpeg" alt="Blue cuties">
+                <button class="view-more" onclick="openModal('image 36.jpeg')">View More</button>
+            </div>
+            <!-- <div class="grid-item">
+                <img src="pj 37.jpeg" alt="Pj Cute">
+                <button class="view-more" onclick="openModal('image 37.jpeg')">View More</button>
+            </div>
+            <div class="grid-item">
+                <img src="pj 38.jpeg" alt="Pj Cute">
+                <button class="view-more" onclick="openModal('image 38.jpeg')">View More</button>
+            </div>
+            <div class="grid-item">
+                <img src="pj 39.jpeg" alt="Pj Cute">
+                <button class="view-more" onclick="openModal('image 39.jpeg')">View More</button>
+            </div>
+            <div class="grid-item">
+                <img src="pj 40.jpeg" alt="Pj Cute">
+                <button class="view-more" onclick="openModal('image 40.jpeg')">View More</button>
+            </div>
+            <div class="grid-item">
+                <img src="pj 41.jpeg" alt="Pj Cute">
+                <button class="view-more" onclick="openModal('image 41.jpeg')">View More</button>
+            </div>
+            <div class="grid-item">
+                <img src="pj 42.jpeg" alt="Pj Cute">
+                <button class="view-more" onclick="openModal('image 42.jpeg')">View More</button>
+            </div>
+            <div class="grid-item">
+                <img src="pj 43.jpeg" alt="Pj Cute">
+                <button class="view-more" onclick="openModal('image 43.jpeg')">View More</button>
+            </div>
+            <div class="grid-item">
+                <img src="pj 44.jpeg" alt="Pj Cute">
+                <button class="view-more" onclick="openModal('image 44.jpeg')">View More</button>
+            </div>
+            <div class="grid-item">
+                <img src="pj 45.jpeg" alt="Pj Cute">
+                <button class="view-more" onclick="openModal('image 45.jpeg')">View More</button>
+            </div> -->
+        </div>
+        </div>
+        <div id="myModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="modalImage">
+        </div>
+    
+        <script>
+            function openModal(src) {
+                document.getElementById('myModal').style.display = "block";
+                document.getElementById('modalImage').src = src;
+            }
+    
+            function closeModal() {
+                document.getElementById('myModal').style.display = "none";
+            }
+        </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+body{
+    background-image: url(Yas.jpeg);
+    background-position: 1rem;
+}
+#search{
+    padding: 15px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 22px;
+    font-family: cursive;
+    width: 50%;
+}
